@@ -4,7 +4,9 @@
 {% block content %}
 
 <h1>Personal Blog</h1>
+<a href="/admin" class="btn btn-primary">Manage Blogs</a>
 <a href="create" class="btn">Create Blog</a>
+<br><br>
 {% for blog in blogs %}
 <article class="post">
 	<h2><a href="{% url 'blog' blog.id %}">{{ blog.title|slice:":20" }}</a></h2>
