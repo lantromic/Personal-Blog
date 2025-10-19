@@ -1,0 +1,14 @@
+{% extends 'boiler.html' %}
+
+{% block content %}
+<section class="page-hero">
+	<h1>{{ blog.title }}</h1>
+	<p class="muted-small">Updated: {{ blog.updated }}</p>
+</section>
+
+<article class="post">
+	<div class="meta muted-small">Published: {{ blog.created }} &middot; Updated: {{ blog.updated }}</div>
+	<div class="content" style="margin-top:12px;line-height:1.65">{{ blog.body }}</div>
+</article>
+
+{% endblock content %}

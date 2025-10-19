@@ -1,0 +1,16 @@
+{% extends 'boiler.html' %}
+
+
+{% block content %}
+
+<h1>Personal Blog</h1>
+<a href="create" class="btn">Create Blog</a>
+{% for blog in blogs %}
+<article class="post">
+	<h2><a href="{% url 'blog' blog.id %}">{{ blog.title|slice:":20" }}</a></h2>
+	<div class="muted">Updated: {{ blog.updated }}</div>
+	<p class="muted">{{ blog.body|truncatechars:150 }}</p>
+</article>
+{% endfor %}
+
+{% endblock content %}

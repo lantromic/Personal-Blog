@@ -1,0 +1,33 @@
+{% extends 'boiler.html' %}
+
+{% block content %}
+
+
+<div class="form-card">
+	<form action="" method="post" novalidate>
+		{% csrf_token %}
+
+		{% if form.non_field_errors %}
+			<div class="errorlist">{{ form.non_field_errors }}</div>
+		{% endif %}
+
+		<div class="form-row">
+			{{ form.title.label_tag }}
+			{{ form.title }}
+			{% if form.title.errors %}<div class="field-error">{{ form.title.errors }}</div>{% endif %}
+		</div>
+
+		<div class="form-row">
+			{{ form.body.label_tag }}
+			{{ form.body }}
+			{% if form.body.errors %}<div class="field-error">{{ form.body.errors }}</div>{% endif %}
+		</div>
+
+		<div style="display:flex;gap:8px;align-items:center">
+			<input type="submit" value="Save" class="btn btn-primary">
+			<a href="/" class="btn btn-ghost">Cancel</a>
+		</div>
+	</form>
+</div>
+
+{% endblock content %}

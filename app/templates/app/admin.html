@@ -1,0 +1,24 @@
+{% extends 'boiler.html' %}
+
+{% block content %}
+
+<div class="page-hero">
+	<h1>Manage Posts</h1>
+	<p class="muted-small">Create, update or delete posts from here.</p>
+</div>
+
+<div style="margin-bottom:12px"><a href="/create" class="btn btn-primary">Create New Post</a></div>
+
+<div class="posts-grid">
+	{% for blog in blogs %}
+	<article class="post">
+        <h2><a href="{% url 'blog' blog.id %}">{{ blog.title|slice:":20" }}</a></h2>		<div class="meta muted-small">Updated: {{ blog.updated }}</div>
+		<div style="margin-top:12px;display:flex;gap:8px">
+			<a href="{% url 'update' blog.id %}" class="btn btn-ghost">Edit</a>
+			<a href="{% url 'delete' blog.id %}" class="btn btn-ghost">Delete</a>
+		</div>
+	</article>
+	{% endfor %}
+</div>
+
+{% endblock content %}

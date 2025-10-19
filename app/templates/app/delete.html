@@ -1,0 +1,12 @@
+{% extends 'boiler.html' %}
+
+{% block content %}
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label>Are you sure you want to delete '{{blog.title}}'</label>
+    <input type="submit" value="yes">
+</form>
+
+{% endblock content %}

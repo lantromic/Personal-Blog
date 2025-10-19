@@ -1,0 +1,231 @@
+/* --- Modernized Site Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+    --bg: #0f172a; /* main background */
+    --body-bg: #0c1428; /* slightly different tone for main area */
+    --nav-bg: #070b18; /* darker tone for header/nav */
+    --panel: #0b1220;
+    --card: linear-gradient(180deg,#101b3b 0%, #0a1024 100%);
+    --accent: #60a5fa; /* soft blue */
+    --accent-2: #7c3aed; /* purple */
+    --muted: #94a3b8;
+    --text: #e6eef8;
+    --glass: rgba(255,255,255,0.03);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: radial-gradient(1200px 400px at 10% 10%, rgba(124,58,237,0.12), transparent 8%), var(--body-bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Header / Navigation --- */
+header.site-header {
+    background: linear-gradient(90deg, var(--nav-bg), #0c1532);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.site-header .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-header nav a {
+    color: var(--muted);
+    margin-left: 12px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+.site-header nav a:hover {
+    color: var(--accent);
+}
+
+.site-header .nav-right {
+    margin-left: auto;
+}
+
+/* --- Layout --- */
+.container { padding-top: 8px; }
+
+main.container {
+    background: linear-gradient(180deg, #0e1735 0%, #0a1228 100%);
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 28px 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    backdrop-filter: blur(16px);
+}
+
+/* --- Page Hero --- */
+.page-hero {
+    margin-bottom: 20px;
+}
+.page-hero h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+.page-hero p {
+    margin: 6px 0 0;
+    color: var(--muted);
+}
+
+/* --- Grid of Posts --- */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+.post {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.02);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.post:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 50px rgba(2,6,23,0.7);
+}
+.post h2 {
+    margin: 0 0 8px;
+}
+.post .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.muted { color: var(--muted); font-size: 0.9rem; }
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 8px 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 20px rgba(96,165,250,0.25);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(124,58,237,0.4);
+}
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text);
+}
+.btn-ghost:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* --- Links --- */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- Form Card --- */
+.form-card {
+    background: linear-gradient(160deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 28px 30px;
+    max-width: 700px;
+    margin: 40px auto;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    backdrop-filter: blur(18px);
+    transition: all 0.25s ease;
+}
+.form-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.55);
+}
+
+/* --- Form Fields --- */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+label {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.25s ease;
+}
+textarea { min-height: 160px; resize: vertical; }
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    border-color: rgba(96,165,250,0.5);
+    box-shadow: 0 0 0 3px rgba(96,165,250,0.1);
+    background: rgba(255,255,255,0.06);
+}
+
+/* --- Submit and Cancel Buttons --- */
+input[type="submit"].btn-primary {
+    padding: 10px 16px;
+    border-radius: 10px;
+}
+
+/* --- Error Messages --- */
+.errorlist,
+.field-error {
+    color: #ffb4b4;
+    font-size: 0.9rem;
+}
+.errorlist {
+    background: rgba(255, 0, 0, 0.05);
+    border-left: 3px solid rgba(255, 0, 0, 0.4);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/* --- Utilities --- */
+.text-center { text-align: center; }
+.muted-small { color: var(--muted); font-size: 0.86rem; }
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 640px) {
+    .page-hero h1 { font-size: 1.5rem; }
+    main.container { padding: 0 12px; }
+    .form-card { padding: 20px; }
+    input[type="text"], textarea { font-size: 0.95rem; }
+}
